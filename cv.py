@@ -128,7 +128,7 @@ class VisionTargetDetector:
         mask = cv2.inRange(hsv, low_green, high_green)
 
         #shows mask
-        cv2.imshow("Mask", mask)
+        #cv2.imshow("Mask", mask)
 
         #find contours based on mask
         _, contour,_ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -289,7 +289,7 @@ class VisionTargetDetector:
                 #draws magenta rectangles for side case situations 
                 #to visulize the rectangles we are doing the calculations to
                 if(modsh <= 0 or modmh <= 0):
-                    print "modsh or modmh 0"
+                   print "modsh or modmh 0"
                 elif(sideCase):
                 #else:
                     cv2.putText(frame, "modmh: " + str(modmh) + ", modsh: " + str(modsh), (0, 200), cv2.FONT_HERSHEY_SIMPLEX, 2, 255)
@@ -355,14 +355,14 @@ class VisionTargetDetector:
         cv2.putText(frame, "ANG: " + str(angle), (0, 50), cv2.FONT_HERSHEY_SIMPLEX, 2, 255)
 
         #displays data on the console such as the angle
-        print "Angle: " + str(angle)
-        print "--------------------"
+        #print "Angle: " + str(angle)
+        #print "--------------------"
 
         #displays the screen showing the contours
         #cv2.imshow("Contours", mask)
 
         #displays the frame, which we use to visualize rectangles with the drawing
-        cv2.imshow("Frame", frame)
+        #cv2.imshow("Frame", frame)
 
         #adding lag time so we can look at the data more carefully
         cv2.waitKey(3)
@@ -370,8 +370,3 @@ class VisionTargetDetector:
         #returns and angle we calculated
         return angle
 
-#officially runs the class
-#COMMENT OUT THIS LATER
-foo = VisionTargetDetector()
-while True:
-    print str(foo.runCV())
